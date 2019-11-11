@@ -45,9 +45,12 @@ try {
 	$stmt = $conn->prepare(
         "SELECT time,
 		BTCBRL,
-		DCRBTC *1000,
-		ETHBTC *1000,
-		LTCBTC *1000
+		DCRBTC *1000000,
+		ETHBTC *1000000,
+		LTCBTC *1000000,
+		BTCUSD,
+		BTCEUR,
+		USDBRL * 1000
         FROM quotes
         WHERE time > $date
 ;");
@@ -69,11 +72,12 @@ try {
 		drawChart(<?php makeData("first day of this month"); ?>, 'Month to date', 'chartmonth'); 
 		drawChart(<?php makeDataDays(7); ?>, '7 days', 'chart7'); 
 		drawChart(<?php makeDataDays(30); ?>, '30 days', 'chart30'); 
+		drawChart(<?php makeDataDays(60); ?>, '60 days', 'chart60'); 
 		drawChart(<?php makeData("10 years ago"); ?>, 'All Time', 'chartall'); 
       });
 
       function addDataHeader(data) {
-	return [['date', 'BTC', 'DCR', 'ETH', 'LTC']].concat(data);
+	return [['date', 'BTCBRL', 'DCR', 'ETH', 'LTC', 'BTCUSD', 'BTCEUR', 'USDBRL']].concat(data);
       }
 
       function drawChart(raw_data, title, domid) {
@@ -88,11 +92,14 @@ try {
           1: {targetAxisIndex: 1},
           2: {targetAxisIndex: 1},
           3: {targetAxisIndex: 1},
+          4: {targetAxisIndex: 1},
+          5: {targetAxisIndex: 1},
+          6: {targetAxisIndex: 1},
         },
         vAxes: {
           // Adds titles to each axis.
           0: {title: 'BRL'},
-          1: {title: 'mBTC'},
+          1: {title: 'uBTC/USD/EUR'},
         }
         };
 
@@ -106,6 +113,7 @@ try {
     <div id="chartmonth" style="width: 900px; height: 500px"></div>
     <div id="chart7" style="width: 900px; height: 500px"></div>
     <div id="chart30" style="width: 900px; height: 500px"></div>
+    <div id="chart60" style="width: 900px; height: 500px"></div>
     <div id="chartall" style="width: 900px; height: 500px"></div>
   </body>
 </html>
