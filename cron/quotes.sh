@@ -27,7 +27,8 @@ AWE_TICKER=$(curl -q 'https://economia.awesomeapi.com.br/all/USD-BRL' 2>/dev/nul
 
 DCR_LAST=$(echo "$POLO_TICKER" | jq '.BTC_DCR.last|tonumber')
 ETH_LAST=$(echo "$POLO_TICKER" | jq '.BTC_ETH.last|tonumber')
-BCH_LAST=$(echo "$POLO_TICKER" | jq '.BTC_BCHABC.last|tonumber')
+#BCH_LAST=$(echo "$POLO_TICKER" | jq '.BTC_BCHABC.last|tonumber')
+BCH_LAST=$(echo "$POLO_TICKER" | jq '.BTC_BCH.last|tonumber')
 LTC_LAST=$(echo "$POLO_TICKER" | jq '.BTC_LTC.last|tonumber')
 #BTC_LAST=$(echo "$FOX_TICKER" | jq '.last')
 BTC_LAST=$(echo "$BVL_TICKER" | jq '.ticker_1h.total.vwap')

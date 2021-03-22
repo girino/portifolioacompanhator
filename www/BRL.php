@@ -73,6 +73,7 @@ try {
       google.charts.setOnLoadCallback(function() { 
 		drawChart(<?php makeData("last Sunday"); ?>, 'Week to date', 'chartweek'); 
 		drawChart(<?php makeData("first day of this month"); ?>, 'Month to date', 'chartmonth'); 
+		drawChart(<?php makeData("1 january 2020"); ?>, 'year to date', 'chartyear'); 
 		drawChart(<?php makeDataDays(7); ?>, '7 days', 'chart7'); 
 		drawChart(<?php makeDataDays(30); ?>, '30 days', 'chart30'); 
 		drawChart(<?php makeData("10 years ago"); ?>, 'All Time', 'chartall'); 
@@ -111,6 +112,7 @@ try {
   <body>
     <div id="chartweek" style="width: 900px; height: 500px"></div>
     <div id="chartmonth" style="width: 900px; height: 500px"></div>
+    <div id="chartyear" style="width: 900px; height: 500px"></div>
     <div id="chart7" style="width: 900px; height: 500px"></div>
     <div id="chart30" style="width: 900px; height: 500px"></div>
     <div id="chartall" style="width: 900px; height: 500px"></div>

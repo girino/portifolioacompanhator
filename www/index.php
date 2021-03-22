@@ -48,6 +48,7 @@ try {
 		DCRBTC *1000000,
 		ETHBTC *1000000,
 		LTCBTC *1000000,
+		BCHBTC *1000000,
 		BTCUSD,
 		BTCEUR,
 		USDBRL * 1000
@@ -77,7 +78,7 @@ try {
       });
 
       function addDataHeader(data) {
-	return [['date', 'BTCBRL', 'DCR', 'ETH', 'LTC', 'BTCUSD', 'BTCEUR', 'USDBRL']].concat(data);
+	return [['date', 'BTCBRL', 'DCR', 'ETH', 'LTC', 'BCH', 'BTCUSD', 'BTCEUR', 'USDBRL']].concat(data);
       }
 
       function drawChart(raw_data, title, domid) {
@@ -95,6 +96,7 @@ try {
           4: {targetAxisIndex: 1},
           5: {targetAxisIndex: 1},
           6: {targetAxisIndex: 1},
+          7: {targetAxisIndex: 1},
         },
         vAxes: {
           // Adds titles to each axis.
